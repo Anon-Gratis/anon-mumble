@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    ~ Copyright (C) 2014 Andrew Comminos
+    ~
+    ~ This program is free software: you can redistribute it and/or modify
+    ~ it under the terms of the GNU General Public License as published by
+    ~ the Free Software Foundation, either version 3 of the License, or
+    ~ (at your option) any later version.
+    ~
+    ~ This program is distributed in the hope that it will be useful,
+    ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+    ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    ~ GNU General Public License for more details.
+    ~
+    ~ You should have received a copy of the GNU General Public License
+    ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    -->
+
+<resources>
+    <!-- Drawer pane -->
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="drawer_not_connected">Not Connected</string>
+    <string name="drawer_server">All Channels</string>
+    <string name="drawer_tokens">Access Tokens</string>
+    <string name="drawer_pinned">Pinned Channels</string>
+    <string name="drawer_header_servers">Servers</string>
+    <string name="drawer_favorites">Favorites</string>
+    <string name="drawer_public">Public Servers</string>
+
+    <!-- Chat formatting -->
+    <string name="chat_message_to">%1$s → %2$s</string>
+    <string name="chat_message_tts_short_link">(Link to %1$s)</string>
+
+    <!-- User menu -->
+    <string name="user_menu_kick">Kick</string>
+    <string name="user_menu_ban">Ban</string>
+    <string name="user_menu_mute">Mute</string>
+    <string name="user_menu_deafen">Deafen</string>
+    <string name="user_menu_move">Move</string>
+    <string name="user_menu_priority_speaker">Priority Speaker</string>
+    <string name="user_menu_local_mute">Local Mute</string>
+    <string name="user_menu_ignore_messages">Ignore Messages</string>
+    <string name="user_menu_change_comment">Change Comment</string>
+    <string name="user_menu_view_comment">View Comment</string>
+    <string name="user_menu_reset_comment">Reset Comment</string>
+    <string name="user_menu_register">Register</string>
+
+    <!-- Channel menu -->
+    <string name="channel_menu_pin">Pin</string>
+
+    <!-- Comment Fragment -->
+    <string name="comment_view">View</string>
+    <string name="comment_edit_source">Edit source</string>
+    <string name="comment_view_source">View source</string>
+
+    <!-- Server Info Fragment -->
+    <string name="control_channel">Control channel</string>
+    <string name="tcp_encryption_mode">Encrypted with 256 bit AES-256-SHA</string>
+    <string name="voice_channel">Voice channel</string>
+    <string name="udp_encryption_mode">Encrypted with 128 bit OCB-AES-128</string>
+    <string name="audio_bandwidth">Audio bandwidth</string>
+    <string name="server_info_protocol">Protocol %s.</string>
+    <string name="server_info_version">%1$s (%2$s)</string>
+    <string name="server_info_latency">%.2f ms latency</string>
+    <string name="server_info_host">Remote host %1$s (port %2$d)</string>
+    <string name="server_info_codec">Codec: %s</string>
+    <string name="server_info_max_bandwidth">Maximum %.1f kbit/s</string>
+    <string name="server_info_current_bandwidth">Current %.1f kbit/s</string>
+
+    <!-- Server matching -->
+    <string name="server_match">Find Server</string>
+    <string name="server_match_progress">Finding a server…</string>
+    <string name="server_match_found">Server found</string>
+    <string name="server_match_not_found">Couldn\'t find server</string>
+    <string name="server_match_expand_country">Couldn\'t find any optimal servers in your country. Search worldwide?</string>
+    <string name="server_match_info">Name: %1$s\nHost: %2$s:%3$d\nUsers: %4$d / %5$d\nVersion: %6$s \nCountry: %7$s \nLatency: %8$d ms</string>
+    <string name="server_match_description">Mumla can automatically find you an empty server, optimizing for location, version, and latency.</string>
+
+    <!-- Common -->
+    <string name="no_servers">Press \'Add\' from the action bar to add a server first.</string>
+    <string name="server_password">Password</string>
+    <string name="server_username">Username</string>
+    <string name="server_port">Port</string>
+    <string name="server_host">Address</string>
+    <string name="server_label">Label</string>
+    <string name="connecting">Connecting</string>
+    <string name="connecting_to_server">Connecting to %s…</string>
+    <string name="ptt">Push-to-talk</string>
+    <string name="mute">Mute</string>
+    <string name="deafen">Deafen</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="disconnectSure">Are you sure you want to disconnect from %s?</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="chat">Chat</string>
+    <string name="perm_denied">Permission denied.</string>
+    <string name="connectionRefused">Connection refused</string>
+    <string name="confirm_delete_server">Are you sure you want to delete this server?</string>
+    <string name="confirm_delete_channel">Are you sure you want to delete this channel?</string>
+    <string name="no_ptt_key">No Key</string>
+    <string name="reset_key">Reset Key</string>
+    <string name="externalStorageUnavailable">External storage unavailable, cannot load certificate</string>
+    <string name="addFavorite">Add Favorite</string>
+    <string name="accessAdd">Add Access Token</string>
+    <string name="messageReceived">New message</string>
+    <string name="generateCertSuccess">Your certificate has been set and saved as %s</string>
+    <string name="generateCertFailure">Could not generate certificate.</string>
+    <string name="generateCertProgress">Generating certificate…</string>
+    <string name="search">Search</string>
+    <string name="searchHint">Search channels and users</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="quickConnect">Quick Connect</string>
+    <string name="connect">Connect</string>
+    <string name="connectToServer">Connect to Server</string>
+    <string name="edit">Edit</string>
+    <string name="remove">Remove</string>
+    <string name="delete">Delete</string>
+    <string name="messageToUser">Type a message to user \'%s\'</string>
+    <string name="messageToChannel">Type message to channel \'%s\'</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="clearChat">Clear Chat</string>
+    <string name="connected">Connected</string>
+    <string name="mumlaConnected">Mumla connected</string>
+    <string name="mumlaConnecting">Mumla connecting…</string>
+    <string name="mumlaDisconnected">Mumla disconnected</string>
+    <string name="channel">Channel</string>
+    <string name="user">User</string>
+    <string name="unknown">Unknown</string>
+    <string name="sort">Sort</string>
+    <string name="sortBy">Sort by…</string>
+    <string name="name">Name</string>
+    <string name="country">Country</string>
+    <string name="share">Share</string>
+    <string name="description">Description</string>
+    <string name="shareMessage">Join this Mumble server with Mumla. %s</string>
+    <string name="status_notify_muted_and_deafened">Muted and deafened.</string>
+    <string name="status_notify_muted">Muted.</string>
+    <string name="close">Close</string>
+    <string name="search_name">Name</string>
+    <string name="search_country">Country</string>
+    <string name="information">Information</string>
+    <string name="error_fetching_servers">Could not fetch servers.\nAre you connected to the Internet?</string>
+    <string name="overlay">Overlay</string>
+    <string name="hint_reason">Reason</string>
+    <string name="action_settings">Settings</string>
+    <string name="reconnect">Reconnect</string>
+    <string name="reconnect_dialog_message">You are already connected to a server. Connect to this server instead?</string>
+    <string name="confirm_reset_comment">Are you sure you want to reset the comment of user %s?</string>
+    <string name="confirm">Confirm</string>
+    <string name="expand">Expand</string>
+    <string name="temporary">Temporary</string>
+    <string name="position">Position</string>
+    <string name="channel_edit">Edit Channel</string>
+    <string name="channel_add">Add Channel</string>
+    <string name="tts_failed">Could not start TTS</string>
+    <string name="mumble_url_parse_failed">Mumble URL is not valid.</string>
+    <string name="first_run_generate_certificate_title">Welcome to Mumla</string>
+    <string name="first_run_generate_certificate">Generating a certificate is highly recommended, and necessary for connection to some servers.</string>
+    <string name="generate">Generate</string>
+    <string name="invalid_password">Wrong password.</string>
+    <string name="send_message">Send message</string>
+    <string name="channel_menu_view_description">View Description</string>
+    <string name="untrusted_certificate">Untrusted Certificate</string>
+    <string name="allow">Allow</string>
+    <string name="trust_added">Added certificate to trust store</string>
+    <string name="trust_add_failed">Could not add certificate to trust store.</string>
+    <string name="trust_cleared">Trust database cleared</string>
+    <string name="cancelled">Canceled</string>
+    <string name="current_chat_target">Current chat target</string>
+    <string name="channel_join">Join</string>
+    <string name="certificate_info">Subject:\n%1$s\n\nValid from:\n%2$s\n\nValid to:\n%3$s\n\nDigest (SHA-1):\n%4$s\n\nDigest (SHA-256):\n%5$s</string>
+    <string name="invalid_host">Invalid host</string>
+    <string name="invalid_port_range">Invalid port (1-65535)</string>
+    <string name="cancel_reconnect">Cancel reconnect</string>
+    <string name="attempting_reconnect">Error: %s.\n\nReconnecting…</string>
+    <string name="change_requires_reconnect">Reconnect to use new settings.</string>
+    <string name="no_certificate">No Certificate</string>
+    <string name="certificates">Certificates</string>
+    <string name="decrypt_certificate">Decrypt Certificate</string>
+    <string name="password">Password</string>
+    <string name="invalid_certificate">Invalid certificate could not be loaded.</string>
+    <string name="certificate_load_failed">Could not store certificate.</string>
+    <string name="certificate_import_success">Imported certificate %s.</string>
+    <string name="error_writing_to_storage">Could not write to external storage.</string>
+    <string name="export_success">Certificate exported to %s.</string>
+    <string name="context_channel_link">Link</string>
+    <string name="context_channel_unlink_all">Unlink All</string>
+    <string name="context_channel_shout">Set Voice Target</string>
+    <string name="shout_include_linked">Shout to linked channels</string>
+    <string name="shout_include_subchannels">Shout to subchannels</string>
+    <string name="shout_failed">Could not create voice target.</string>
+    <string name="shout_target">Shouting to %s</string>
+    <string name="shout_configure">Configure Voice Target</string>
+    <string name="grant_perm_microphone">Please grant microphone permission.</string>
+    <string name="grant_perm_notifications">Please grant permission to send notifications.</string>
+    <string name="grant_perm_storage">Please grant external storage permission.</string>
+    <string name="grant_perm_draw_over_apps">Please grant permission to display over other apps.</string>
+    <string name="orbot_not_installed">The Orbot app is not installed. Not using Tor.</string>
+    <string name="orbot_tor_failed">Could not connect to local Tor proxy on port %d (SOCKS).\n\nPlease ensure the Orbot app is running.</string>
+    <string name="default_">Default</string>
+    <string name="donation_thanks">Thank you for the donation.</string>
+    <string name="image_confirm_send">Send this image?</string>
+
+    <plurals name="search_channel_users">
+        <item quantity="one">%d user</item>
+        <item quantity="other">%d users</item>
+    </plurals>
+    <plurals name="notification_unread_many">
+        <item quantity="one">%d new message</item>
+        <item quantity="other">%d new messages</item>
+    </plurals>
+
+    <string name="app_news">What\'s New</string>
+    <string name="app_news_summary">View the latest updates</string>
+    <string name="app_news_footer_on_startup">These news can be viewed again from the About page.</string>
+
+    <string name="app_news_items_v3_7_0">• A lot of work was done to update Mumla for Android 15 and 16 (API 35 &amp; 36).\n
+• As a consequence Android 5.0 (API 21) or later is now required.\n
+• Theming was modernized to support system light/dark modes.\n
+• The settings screen had to be adapted to newer APIs.\n
+• Added in-app language preference.\n</string>
+    <string name="app_news_items_v3_7_1">• Minor release with mostly translation updates, thank you all translators!\n</string>
+    <string name="app_news_items_v3_7_2">• Fix potential crash on startup.\n
+• Add some translations, thank you all translators!\n</string>
+    <string name="app_news_items_v3_7_3">• Make PTT hot corner visible on Android 12 and later, and on dark and light background\n
+• Make the Back-button ask to disconnect from server again on Android 16+\n</string>
+
+    <!-- Used only by flavor "goog" -->
+    <string name="donate_dialog_title_goog">Enjoying Mumla?</string>
+    <string name="donate_dialog_message_goog">Thank you for using Mumla! Please consider making a small donation to help keep Mumla alive — and to remove this message.</string>
+    <string name="donate_dialog_positivebutton_goog">Support Mumla</string>
+    <string name="donate_dialog_negativebutton_goog">Later</string>
+    <string name="donate_purchase_pending_goog">Your donation is pending and may be ready at a later restart. Thank you!</string>
+    <string name="donate_thanks_goog">Thank you for your support!</string>
+
+    <!-- Used only by flavor "foss" -->
+    <string name="donate_foss">Donate</string>
+</resources>

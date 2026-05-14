@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/anon_black"
+    android:gravity="center_horizontal"
+    android:padding="24dp">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="// ANON MUMBLE"
+        android:textColor="@color/anon_green"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOCKED"
+        android:textColor="@color/anon_mid"
+        android:textSize="12sp"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.3"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="32dp" />
+
+    <EditText
+        android:id="@+id/applock_pin_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="enter PIN"
+        android:textColor="@color/anon_white"
+        android:textColorHint="@color/anon_mid"
+        android:textSize="20sp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:letterSpacing="0.2"
+        android:inputType="numberPassword"
+        android:maxLength="12"
+        android:background="@color/anon_dim"
+        android:padding="16dp"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/applock_error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/anon_red"
+        android:textSize="11sp"
+        android:fontFamily="monospace"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/applock_unlock_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="[ UNLOCK ]"
+        android:textColor="@color/anon_white"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:letterSpacing="0.15"
+        android:backgroundTint="@color/anon_dim"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp" />
+
+    <Button
+        android:id="@+id/applock_biometric_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="[ USE BIOMETRIC ]"
+        android:textColor="@color/anon_white"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:letterSpacing="0.15"
+        android:backgroundTint="@color/anon_dim"
+        android:visibility="gone"
+        android:insetTop="0dp"
+        android:insetBottom="0dp" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="no PIN recovery · forgotten PIN means clearing app data"
+        android:textColor="@color/anon_mid"
+        android:textSize="10sp"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.05"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>

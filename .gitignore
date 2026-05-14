@@ -1,0 +1,55 @@
+# Built application files
+*.apk
+*.aab
+*.ap_
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local config
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Keystore + signing — NEVER COMMIT
+signing.properties
+signing.gradle
+signing-beta.gradle
+signing.managed.properties
+*.p12
+*.jks
+*.keystore
+*.bks
+keystore.properties
+
+# Backup files
+*.bak
+*~

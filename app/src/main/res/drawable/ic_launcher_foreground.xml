@@ -1,0 +1,95 @@
+<!-- Adaptive icon foreground for Anon Mumble. Matches the suite style:
+     CRT corner brackets + // brand tag + central mic glyph, all in
+     anon green (#00C853). Background is supplied by ic_launcher_background.xml
+     (#000000). ViewBox 512x512 to match /tmp/anon-icons/mumble.svg. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+
+    <!-- CRT corner brackets -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="10"
+        android:strokeLineCap="square"
+        android:pathData="M44,108 L44,44 L108,44" />
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="10"
+        android:strokeLineCap="square"
+        android:pathData="M404,44 L468,44 L468,108" />
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="10"
+        android:strokeLineCap="square"
+        android:pathData="M468,404 L468,468 L404,468" />
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="10"
+        android:strokeLineCap="square"
+        android:pathData="M108,468 L44,468 L44,404" />
+
+    <!-- // brand tag (two diagonal strokes — Android VectorDrawable can't
+         render <text>, so we draw the slashes manually). -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="10"
+        android:strokeLineCap="square"
+        android:pathData="M62,98 L86,68" />
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="10"
+        android:strokeLineCap="square"
+        android:pathData="M86,98 L110,68" />
+
+    <!-- Microphone head (rounded capsule) -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="16"
+        android:fillColor="#00000000"
+        android:pathData="M200,184
+                          a56,56 0 0 1 112,0
+                          L312,272
+                          a56,56 0 0 1 -112,0 Z" />
+
+    <!-- Grille bands inside the head -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="16"
+        android:strokeLineCap="square"
+        android:pathData="M216,180 L296,180" />
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="16"
+        android:strokeLineCap="square"
+        android:pathData="M216,220 L296,220" />
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="16"
+        android:strokeLineCap="square"
+        android:pathData="M216,260 L296,260" />
+
+    <!-- Shock-mount yoke (U-shape under the head) -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="14"
+        android:fillColor="#00000000"
+        android:pathData="M160,256
+                          Q160,360 256,360
+                          Q352,360 352,256" />
+
+    <!-- Stem -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="16"
+        android:strokeLineCap="square"
+        android:pathData="M256,360 L256,420" />
+
+    <!-- Base -->
+    <path
+        android:strokeColor="#00C853"
+        android:strokeWidth="18"
+        android:strokeLineCap="square"
+        android:pathData="M200,420 L312,420" />
+</vector>

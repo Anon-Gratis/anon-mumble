@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/pref_category_app_lock">
+        <SwitchPreferenceCompat
+            android:icon="@drawable/ic_lock_24dp"
+            android:key="app_lock_enabled"
+            android:title="@string/pref_app_lock_enable_title"
+            android:summary="@string/pref_app_lock_enable_summary" />
+        <Preference
+            android:icon="@drawable/ic_password_24dp"
+            android:key="app_lock_change_pin"
+            android:title="@string/pref_app_lock_change_pin_title"
+            android:dependency="app_lock_enabled" />
+        <SwitchPreferenceCompat
+            android:icon="@drawable/ic_fingerprint_24dp"
+            android:key="app_lock_biometric"
+            android:title="@string/pref_app_lock_biometric_title"
+            android:summary="@string/pref_app_lock_biometric_summary"
+            android:dependency="app_lock_enabled" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_app_lock_privacy">
+        <Preference
+            android:icon="@drawable/ic_visibility_off_24dp"
+            android:title="@string/pref_app_lock_flag_secure_title"
+            android:summary="@string/pref_app_lock_flag_secure_summary"
+            android:selectable="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

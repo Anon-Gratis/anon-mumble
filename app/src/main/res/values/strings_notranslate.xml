@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2014 Andrew Comminos
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!-- Here be constants. These resources do NOT need translation. -->
+<resources>
+    <string name="app_name">Anon Mumble</string>
+    <string name="notification_message">%1$s: %2$s</string>
+    <string name="certificate_export_format">mumla_%s.p12</string>
+
+    <!-- Anon fork: app-lock strings ported from Anon XMPP. -->
+    <string name="pref_title_app_lock">App lock</string>
+    <string name="pref_summary_app_lock">PIN + biometric gate on launch and after backgrounding</string>
+    <string name="pref_category_app_lock">Lock</string>
+    <string name="pref_category_app_lock_privacy">Privacy</string>
+    <string name="pref_app_lock_enable_title">Enable app lock</string>
+    <string name="pref_app_lock_enable_summary">Require a PIN to open this app. No PIN recovery — forgetting it means clearing app data.</string>
+    <string name="pref_app_lock_change_pin_title">Change PIN</string>
+    <string name="pref_app_lock_biometric_title">Biometric unlock</string>
+    <string name="pref_app_lock_biometric_summary">Use fingerprint / face as a shortcut. PIN is always the fallback.</string>
+    <string name="pref_app_lock_flag_secure_title">Hide in Recent Apps</string>
+    <string name="pref_app_lock_flag_secure_summary">App content is blurred in the Recent Apps switcher and in-app screenshots are blocked at all times (FLAG_SECURE), independent of the lock setting.</string>
+
+    <!-- Anon fork: voice changer strings + mode arrays. -->
+    <string name="voice_changer_category">Voice changer</string>
+    <string name="voice_changer_title">Voice mode</string>
+    <string name="voice_changer_summary">Forensic-grade anonymization applied before Opus encoding. Default OFF.</string>
+    <string-array name="voice_changer_mode_entries">
+        <item>OFF (no change)</item>
+        <item>ROBOT (strongest)</item>
+        <item>MASK (humanish)</item>
+        <item>ANONYMOUS (V/whistleblower)</item>
+    </string-array>
+    <string-array name="voice_changer_mode_values">
+        <item>OFF</item>
+        <item>ROBOT</item>
+        <item>MASK</item>
+        <item>ANONYMOUS</item>
+    </string-array>
+</resources>

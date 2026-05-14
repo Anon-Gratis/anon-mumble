@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="md_theme_light_primary">#3949ab</color>
+    <color name="md_theme_light_primary_darker">#212b64</color> <!-- for pttPressed -->
+    <color name="md_theme_light_onPrimary">#ffffff</color>
+
+    <color name="md_theme_dark_primary">#001b2b</color>
+    <color name="md_theme_dark_primary_lighter">#002b45</color> <!-- for pttPressed -->
+    <color name="md_theme_dark_primary_lighter_more">#0093eb</color> <!-- for higher-contrast buttons in dark mode -->
+    <color name="md_theme_dark_onPrimary">#1795c2</color>
+
+    <color name="hot_corner_highlight">#ff2079ab</color>
+
+    <color name="ripple_talk_state_on">#ffcc0000</color>
+    <color name="ripple_talk_state_off">#ffffffff</color>
+    <color name="ripple_talk_state_disabled">#ff666666</color>
+    <color name="ripple_talk_state_suppressed">#ff669900</color>
+    <color name="ripple_talk_state_server_muted">#ff0099cc</color>
+    <color name="ripple_talk_state_server_deafened">#ff0099cc</color>
+
+    <!-- Anon palette used by the app-lock UI + (later) any Anon-themed surfaces. -->
+    <color name="anon_black">#FF000000</color>
+    <color name="anon_white">#FFE5E5E5</color>
+    <color name="anon_green">#FF00C853</color>
+    <color name="anon_red">#FFFF5252</color>
+    <color name="anon_mid">#FF888888</color>
+    <color name="anon_dim">#FF1A1A1A</color>
+</resources>

@@ -1,0 +1,150 @@
+/*
+ * Copyright (C) 2014 Andrew Comminos
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.13.2'
+    }
+}
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+def signingFile = file 'signing.gradle'
+if (signingFile.exists()) apply from: signingFile
+def signingBetaFile = file 'signing-beta.gradle'
+if (signingBetaFile.exists()) apply from: signingBetaFile
+
+allprojects {
+    tasks.withType(JavaCompile) {
+        // TODO include deprecations at some point, but currently they are *many*
+        options.compilerArgs << "-Xlint:all" << "-Xlint:-deprecation" << "-Xlint:-dep-ann"
+    }
+}
+
+android {
+    namespace = 'se.lublin.mumla'
+    compileSdk = 36
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    base {
+        archivesName = "anon-mumble"
+    }
+
+    // gradle8: Need to enable this when defaultConfig below contains some custom BuildConfig
+    buildFeatures {
+        buildConfig = true
+    }
+
+    // Anon fork: pinned versionName (no git describe — keeps repo offline-buildable)
+    // and applicationId rebranded to gratis.anon.mumble. We deliberately keep the
+    // namespace = 'se.lublin.mumla' (above) so the R-class and the source tree don't
+    // require a wholesale package rename — same trick as the AnonVPN fork.
+    defaultConfig {
+        minSdkVersion 21
+        targetSdk 36
+
+        applicationId "gratis.anon.mumble"
+        versionCode 5
+        versionName "1.0.4"
+
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+        buildConfigField "String", "VERSIONTAG", "\"1.0.3\""
+
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    flavorDimensions "release"
+    productFlavors {
+        // Single-flavor build. The original Mumla repo ships goog/foss/donation/beta
+        // splits for Play-Store + F-Droid + Liberapay-donation gating. Anon fork
+        // collapses to one foss-only flavor because we sign + distribute ourselves.
+        foss {
+            dimension "release"
+            applicationId "gratis.anon.mumble"
+        }
+    }
+
+    buildTypes {
+        // signingConfig beta will override
+        release {
+            if (android.hasProperty("signingConfigs")) {
+                if (signingConfigs.hasProperty("release")) {
+                    signingConfig = signingConfigs.release
+                }
+                if (signingConfigs.hasProperty("beta")) {
+                    signingConfig = signingConfigs.beta
+                }
+            }
+        }
+        debug {
+            versionNameSuffix "-debug"
+            if (android.hasProperty("signingConfigs")) {
+                if (signingConfigs.hasProperty("beta")) {
+                    signingConfig = signingConfigs.beta
+                }
+            }
+        }
+    }
+    lint {
+        abortOnError = true
+        // InvalidPackage is spongycastle-related
+        disable 'InvalidPackage', 'MissingTranslation'
+        explainIssues = true
+        ignoreWarnings = false
+        quiet = false
+    }
+}
+
+dependencies {
+    implementation project(":libraries:humla")
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.documentfile:documentfile:1.1.0'
+    implementation 'androidx.fragment:fragment:1.8.9'
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.exifinterface:exifinterface:1.4.2'
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'info.guardianproject.netcipher:netcipher:2.1.0'
+
+    // Embedded Tor — same library used by Anon XMPP / Mail. The .aar ships
+    // libtor.so for all four ABIs + a Service that binds SOCKS5 on
+    // 127.0.0.1:9050. Replaces the Orbot install dependency.
+    implementation 'info.guardianproject:tor-android:0.4.8.16'
+    implementation 'info.guardianproject:jtorctl:0.4.5.7'
+
+    // App-lock: biometric prompt + foreground/background lifecycle tracking.
+    implementation 'androidx.biometric:biometric:1.2.0-alpha05'
+    implementation 'androidx.lifecycle:lifecycle-process:2.8.4'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+
+    // googImplementation 'com.android.billingclient:billing:7.1.1' — Play Billing removed
+    // (no Play flavor in the Anon fork).
+}
