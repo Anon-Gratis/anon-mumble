@@ -85,9 +85,17 @@ public final class TorBridge {
 
     public static synchronized void start(final Context appContext) {
         if (sConnection != null) return;
-        // Override the AAR's default 9050 BEFORE the service starts. TorService
-        // reads its socksPort static field when generating torrc, so this must
-        // happen pre-bindService. See SOCKS_PORT javadoc for the cross-app plan.
+        // Pre-write the user torrc with our per-app SOCKSPort BEFORE bindService.
+        // tor-android's setDefaultProxyPorts() hardcodes "SOCKSPort 9050" (or
+        // "auto" when 9050 is taken) into torrc-defaults and does NOT honor
+        // TorService.socksPort — that field is a read-back populated by
+        // getSocksPort(), not a config knob. Tor parses torrc AFTER
+        // torrc-defaults and SOCKSPort directives are additive, so writing
+        // "SOCKSPort 9250" to torrc opens our per-app port alongside whatever
+        // the defaults gave us. (Diagnosed 2026-05-17 on Anon Social.)
+        writeUserTorrc(appContext.getApplicationContext());
+        // Set the static field too so anything that calls getSocksPort()
+        // reads back our port rather than 0.
         TorService.socksPort = SOCKS_PORT;
         installStatusReceiver(appContext.getApplicationContext());
 
@@ -112,6 +120,23 @@ public final class TorBridge {
                 Log.e(TAG, "could not bind embedded Tor", t);
             }
         }, 2000L);
+    }
+
+    private static void writeUserTorrc(Context ctx) {
+        try {
+            java.io.File torrc = TorService.getTorrc(ctx);
+            java.io.File parent = torrc.getParentFile();
+            if (parent != null) parent.mkdirs();
+            java.io.FileWriter w = new java.io.FileWriter(torrc, false);
+            try {
+                w.write("SOCKSPort " + SOCKS_PORT + "\n");
+            } finally {
+                w.close();
+            }
+            Log.d(TAG, "wrote user torrc → " + torrc + " with SOCKSPort " + SOCKS_PORT);
+        } catch (Throwable t) {
+            Log.e(TAG, "failed to write user torrc", t);
+        }
     }
 
     private static void installStatusReceiver(Context ctx) {
