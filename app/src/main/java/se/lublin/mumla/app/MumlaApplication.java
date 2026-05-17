@@ -23,7 +23,7 @@ public class MumlaApplication extends Application implements SharedPreferences.O
         // Anon fork: boot the embedded Tor daemon on app start. The bind is
         // deferred 2 s inside TorBridge to avoid racing with activity startup;
         // by the time the user taps [ CONNECT ] on the pre-populated server,
-        // SOCKS5 on 127.0.0.1:9050 is ready.
+        // SOCKS5 on TorBridge.SOCKS_HOST:SOCKS_PORT is ready.
         se.lublin.mumla.tor.TorBridge.start(this);
         seedAnonGratisServer();
         // Anon fork: load saved voice-changer mode into the shared DSP singleton

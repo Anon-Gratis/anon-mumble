@@ -74,9 +74,12 @@ public class HumlaConnection implements HumlaTCP.TCPConnectionListener, HumlaUDP
     }
     private HumlaConnectionListener mListener;
 
-    // Tor connection details
+    // Tor connection details.
+    // Anon Mumble: SOCKS5 port matches se.lublin.mumla.tor.TorBridge.SOCKS_PORT (9250).
+    // Per-app port avoids EADDRINUSE collisions with sibling Anon-Tor apps
+    // (XMPP 9050, Mail 9150, Mumble 9250, WhistleBlower 9450, Social 9550).
     public static final String TOR_HOST = "localhost";
-    public static final int TOR_PORT = 9050;
+    public static final int TOR_PORT = 9250;
 
     // Authentication
     private byte[] mCertificate;

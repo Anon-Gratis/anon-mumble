@@ -49,9 +49,26 @@ public final class TorBridge {
     public static final String STATUS_STARTING = "STARTING";
     public static final String STATUS_STOPPING = "STOPPING";
 
-    /** SOCKS5 endpoint the embedded Tor binds to. */
+    /**
+     * SOCKS5 endpoint the embedded Tor binds to.
+     *
+     * <p>Per-app port to avoid collisions when multiple Anon-Tor apps run on
+     * the same device — they all embed info.guardianproject:tor-android which
+     * defaults to 9050, so whichever app launches first wins the port and the
+     * rest fail silently with EADDRINUSE (tor binary exits, never broadcasts
+     * STATUS_ON, the host app blocks forever waiting on a circuit).
+     *
+     * <p>Assignments (keep in sync with the other Anon-Tor apps):
+     * <pre>
+     *   Anon XMPP        → 9050   (legacy default, unchanged)
+     *   Anon Mail        → 9150
+     *   Anon Mumble      → 9250   (this app)
+     *   Anon WhistleBlower → 9450
+     *   Anon Social      → 9550
+     * </pre>
+     */
     public static final String SOCKS_HOST = "127.0.0.1";
-    public static final int SOCKS_PORT = 9050;
+    public static final int SOCKS_PORT = 9250;
 
     private static volatile String sStatus = "UNKNOWN";
 
@@ -68,6 +85,10 @@ public final class TorBridge {
 
     public static synchronized void start(final Context appContext) {
         if (sConnection != null) return;
+        // Override the AAR's default 9050 BEFORE the service starts. TorService
+        // reads its socksPort static field when generating torrc, so this must
+        // happen pre-bindService. See SOCKS_PORT javadoc for the cross-app plan.
+        TorService.socksPort = SOCKS_PORT;
         installStatusReceiver(appContext.getApplicationContext());
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -75,7 +96,7 @@ public final class TorBridge {
                 ServiceConnection conn = new ServiceConnection() {
                     @Override
                     public void onServiceConnected(ComponentName name, IBinder service) {
-                        Log.d(TAG, "embedded Tor bound: " + name);
+                        Log.d(TAG, "embedded Tor bound: " + name + " (SOCKS " + SOCKS_PORT + ")");
                     }
                     @Override
                     public void onServiceDisconnected(ComponentName name) {
@@ -86,7 +107,7 @@ public final class TorBridge {
                 Intent intent = new Intent(appContext, TorService.class);
                 boolean ok = appContext.getApplicationContext()
                         .bindService(intent, conn, Context.BIND_AUTO_CREATE);
-                Log.d(TAG, "embedded Tor bindService -> " + ok);
+                Log.d(TAG, "embedded Tor bindService -> " + ok + " (SOCKS " + SOCKS_PORT + ")");
             } catch (Throwable t) {
                 Log.e(TAG, "could not bind embedded Tor", t);
             }

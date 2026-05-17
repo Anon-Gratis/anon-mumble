@@ -70,8 +70,8 @@ android {
         targetSdk 36
 
         applicationId "gratis.anon.mumble"
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.5"
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
         buildConfigField "String", "VERSIONTAG", "\"1.0.3\""
